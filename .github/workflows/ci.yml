@@ -13,6 +13,10 @@ on:
     branches:
       - main
 
+# The API requires write permission on the repository to submit dependencies
+permissions:
+  contents: write
+
 jobs:
   ci-tests:
     runs-on: ubuntu-latest
