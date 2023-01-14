@@ -53,7 +53,7 @@ jobs:
           install-go: false
 
       - name: "Run tests"
-        run: "go test ./... > test.json"
+        run: "go test -json ./... > test.json"
 
       # See: https://github.com/marketplace/actions/golang-test-annotations
       - name: "Annotate tests"
