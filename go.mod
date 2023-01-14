@@ -1,17 +1,23 @@
-module github.com/streamingriver/super-config
+module github.com/agios-ierodromos/super-config
 
-go 1.17
+go 1.19
 
 require (
-	github.com/nats-io/nats.go v1.13.1-0.20220308171302-2f2f6968e98d
+	github.com/nats-io/nats.go v1.22.1
 	gitlab.com/avarf/getenvs v1.0.1
 )
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/nats-io/nats-server/v2 v2.7.4 // indirect
+	github.com/klauspost/compress v1.15.11 // indirect
+	github.com/minio/highwayhash v1.0.2 // indirect
+	github.com/nats-io/jwt/v2 v2.3.0 // indirect
+	github.com/nats-io/nats-server/v2 v2.9.11 // indirect
 	github.com/nats-io/nkeys v0.3.0 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
-	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
-	google.golang.org/protobuf v1.27.1 // indirect
+	go.uber.org/automaxprocs v1.5.1 // indirect
+	golang.org/x/crypto v0.5.0 // indirect
+	golang.org/x/sys v0.4.0 // indirect
+	golang.org/x/time v0.0.0-20220922220347-f3bd1da661af // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 )
