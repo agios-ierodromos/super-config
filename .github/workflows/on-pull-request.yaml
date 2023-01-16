@@ -25,4 +25,18 @@ jobs:
       - name: "Checkout repository"
         uses: actions/checkout@v3
 
+      # See: https://github.com/marketplace/actions/actionlint-with-reviewdog
+      # See: https://github.com/rhysd/actionlint
+      - name: "Lint GitHub Action Workflows - Checks"
+        uses: reviewdog/action-actionlint@v1
+        with:
+          reporter: github-pr-check
+
+      # See: https://github.com/marketplace/actions/actionlint-with-reviewdog
+      # See: https://github.com/rhysd/actionlint
+      - name: "Lint GitHub Action Workflows - Reviews"
+        uses: reviewdog/action-actionlint@v1
+        with:
+          reporter: github-pr-review
+
       - uses: ./.github/actions/ci

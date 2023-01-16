@@ -14,7 +14,7 @@ on:
 jobs:
   release-linux:
     # The the release job will only run if a release is created or if the latest release is edited/updated
-    if: ${{ github.event.release.action == 'created' || ( github.event.release.action == 'edited' && github.event.release.release.tag_name == 'latest' ) }}
+    if: ${{ github.event.action == 'created' || ( github.event.action == 'edited' && github.event.release.tag_name == 'latest' ) }}
     name: "Publish Linux packages"
     runs-on: ubuntu-latest
 
@@ -43,7 +43,7 @@ jobs:
 
   release-macos:
     # The the release job will only run if a release is created or if the latest release is edited/updated
-    if: ${{ github.event.release.action == 'created' || ( github.event.release.action == 'edited' && github.event.release.release.tag_name == 'latest' ) }}
+    if: ${{ github.event.action == 'created' || ( github.event.action == 'edited' && github.event.release.tag_name == 'latest' ) }}
     name: "Publish macOS packages"
     runs-on: ubuntu-latest
 
@@ -72,7 +72,7 @@ jobs:
 
   release-windows:
     # The the release job will only run if a release is created or if the latest release is edited/updated
-    if: ${{ github.event.release.action == 'created' || ( github.event.release.action == 'edited' && github.event.release.tag_name == 'latest' ) }}
+    if: ${{ github.event.action == 'created' || ( github.event.action == 'edited' && github.event.release.tag_name == 'latest' ) }}
     name: "Publish Windows packages"
     runs-on: ubuntu-latest
 
