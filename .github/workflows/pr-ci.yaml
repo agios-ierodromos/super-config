@@ -11,4 +11,5 @@ on:
 jobs:
   test-and-coverage:
     name: "Tests for Pull Requests"
+    if: ${{ github.ref != 'refs/heads/main' || github.event.pull_request.merged != true }}
     uses: ./.github/worflows/ci.yml
