@@ -3,25 +3,9 @@ name: "Release Go binary package"
 author: "Alexandre Marcondes <alexandre.marcondes@gmail.com>"
 description: "Build and Release Go Binaries to GitHub Release Assets"
 
-inputs:
-  token:
-    description: "GITHUB_TOKEN for uploading releases to Github assets."
-    required: true
-    default: "${{ secrets.GITHUB_TOKEN }}"
-  repository:
-    description: "Repository name."
-    required: true
-    default: "${{ github.repository }}"
-
 runs:
   using: "composite"
   steps:
-
-    # See: https://github.com/marketplace/actions/checkout
-    - name: "Checkout repository"
-      id: checkout_repository
-      repository: "${{ inputs.repository }}"
-      uses: actions/checkout@v3
 
     # See: https://github.com/marketplace/actions/get-json-property
     - name: Read go_version from release.json
