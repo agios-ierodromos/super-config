@@ -69,6 +69,6 @@ runs:
         release_name: "${{ inputs.tag }}"
         release_tag: "${{ inputs.tag }}"
         binary_name: "${{ inputs.repository }}${{ inputs.extension }}"
-        asset_name: "${{ inputs.repository }}-${{ inputs.goos }}-${{ inputs.goarch }}-"${{ steps.package_version.outputs.prop }}""
+        asset_name: "${{ inputs.repository }}-${{ inputs.goos }}-${{ inputs.goarch }}-${{ steps.package_version.outputs.prop }}"
         compress_assets: auto
         overwrite: true
