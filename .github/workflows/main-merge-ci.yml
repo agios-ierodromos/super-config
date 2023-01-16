@@ -11,5 +11,6 @@ on:
       - main
 
 jobs:
-  call-another-reusable:
-    uses: ./.github/ci.yml
+  test-and-coverage:
+    name: "Tests for merge to main branch"
+    uses: ./.github/worflows/ci.yml

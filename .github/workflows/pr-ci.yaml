@@ -9,5 +9,6 @@ on:
   pull_request:
 
 jobs:
-  call-another-reusable:
-    uses: ./.github/ci.yml
+  test-and-coverage:
+    name: "Tests for Pull Requests"
+    uses: ./.github/worflows/ci.yml
