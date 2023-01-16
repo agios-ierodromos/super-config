@@ -1,18 +1,33 @@
-name: "Submit release assets"
+name: "Update released versions"
 
-# The workflow below runs when the release event triggers when the latest release is edited.
+# The workflow below runs when the release event triggers when tags are created.
 # For more information on the release event.
-# See: [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#release)
+# See: [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#push)
 
 on:
-  release:
-    types:
-      - edited
+  push:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*.*.*'
 
 jobs:
+  update-semver:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # See: https://github.com/marketplace/actions/checkout
+      - name: "Checkout repository"
+        id: checkout_repository
+        uses: actions/checkout@v3
+
+      # See: https://github.com/marketplace/actions/update-major-minor-semver
+      - name: "Update major/minor release"
+        uses: haya14busa/action-update-semver@v1
+
   release-linux:
-    # The the release job will only run if the latest release is edited/updated
-    if: github.event.release.tag_name == 'latest'
+    needs: update-semver
     name: "Publish Linux packages"
     runs-on: ubuntu-latest
 
@@ -38,10 +53,10 @@ jobs:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           extension: ""
+          tag: ${{ github.ref_name }}
 
   release-macos:
-    # The the release job will only run if the latest release is edited/updated
-    if: github.event.release.tag_name == 'latest'
+    needs: update-semver
     name: "Publish macOS packages"
     runs-on: ubuntu-latest
 
@@ -67,10 +82,10 @@ jobs:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           extension: ""
+          tag: ${{ github.ref_name }}
 
   release-windows:
-    # The the release job will only run if the latest release is edited/updated
-    if: github.event.release.tag_name == 'latest'
+    needs: update-semver
     name: "Publish Windows packages"
     runs-on: ubuntu-latest
 
@@ -96,3 +111,4 @@ jobs:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           extension: ".exe"
+          tag: ${{ github.ref_name }}
