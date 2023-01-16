@@ -13,6 +13,7 @@ on:
 jobs:
   test-and-coverage:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       
@@ -20,7 +21,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-    
+
     # See: https://github.com/marketplace/actions/checkout
     - name: "Checkout repository"
       uses: actions/checkout@v3
