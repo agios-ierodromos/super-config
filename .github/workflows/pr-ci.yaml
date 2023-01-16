@@ -9,8 +9,6 @@ on:
   pull_request:
 
 jobs:
-    
-
   test-and-coverage:
     runs-on: ubuntu-latest
 

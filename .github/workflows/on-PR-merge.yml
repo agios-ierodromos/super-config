@@ -11,7 +11,6 @@ on:
       - closed
 
 jobs:
-
   release-linux:
     # The the release job will only run if the pull request was also merged
     if: github.event.pull_request.merged == true
