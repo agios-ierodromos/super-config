@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write
       
     name: "Tests for merge to main branch"
     if: github.ref == 'refs/heads/main'
