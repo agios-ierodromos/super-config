@@ -1,16 +1,18 @@
 name: "Submit release assets"
 
-# The workflow below runs when the release event triggers when releases are created.
+# The workflow below runs when the release event triggers when the latest release is edited.
 # For more information on the release event.
 # See: [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#release)
 
 on:
   release:
     types:
-      - created
+      - edited
 
 jobs:
   release-linux:
+    # The the release job will only run if the latest release is edited/updated
+    if: github.event.release.tag_name == 'latest'
     name: "Publish Linux packages"
     runs-on: ubuntu-latest
 
@@ -38,6 +40,8 @@ jobs:
           extension: ""
 
   release-macos:
+    # The the release job will only run if the latest release is edited/updated
+    if: github.event.release.tag_name == 'latest'
     name: "Publish macOS packages"
     runs-on: ubuntu-latest
 
@@ -65,6 +69,8 @@ jobs:
           extension: ""
 
   release-windows:
+    # The the release job will only run if the latest release is edited/updated
+    if: github.event.release.tag_name == 'latest'
     name: "Publish Windows packages"
     runs-on: ubuntu-latest
 
