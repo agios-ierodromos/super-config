@@ -19,4 +19,6 @@ jobs:
 
     name: "Tests for Pull Requests"
     if: ${{ github.ref != 'refs/heads/main' || github.event.pull_request.merged != true }}
-    uses: ./.github/workflows/ci.yml
+    
+    steps:
+    - uses: ./.github/workflows/ci.yml
