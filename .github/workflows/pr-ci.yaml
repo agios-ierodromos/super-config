@@ -21,4 +21,9 @@ jobs:
     if: ${{ github.ref != 'refs/heads/main' || github.event.pull_request.merged != true }}
     
     steps:
+    
+    # See: https://github.com/marketplace/actions/checkout
+    - name: "Checkout repository"
+      uses: actions/checkout@v3
+
     - uses: ./.github/workflows/ci.yml
