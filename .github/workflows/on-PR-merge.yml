@@ -27,7 +27,7 @@ jobs:
     permissions:
       contents: write
 
-    uses: ./.github/workflows/package.publish.yml
+    uses: ./.github/workflows/ackage-publish.yml
       with:
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
@@ -48,7 +48,7 @@ jobs:
     permissions:
       contents: write
 
-    uses: ./.github/workflows/package.publish.yml
+    uses: ./.github/workflows/ackage-publish.yml
       with:
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
@@ -69,7 +69,7 @@ jobs:
     permissions:
       contents: write
 
-    uses: ./.github/workflows/package.publish.yml
+    uses: ./.github/workflows/ackage-publish.yml
       with:
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}

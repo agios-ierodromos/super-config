@@ -14,4 +14,4 @@ jobs:
   test-and-coverage:
     name: "Tests for merge to main branch"
      if: github.ref == 'refs/heads/main'
-    uses: ./.github/worflows/ci.yml
+    uses: ./.github/workflows/ci.yml
