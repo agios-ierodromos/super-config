@@ -31,7 +31,7 @@ runs:
 
     - name: "Go vet"
       run: "go vet ./..."
-        shell: bash
+      shell: bash
 
     # See: https://github.com/marketplace/actions/staticcheck
     - uses: dominikh/staticcheck-action@v1.3.0
@@ -41,7 +41,7 @@ runs:
 
     - name: "Run tests"
       run: "go test -json ./... > test.json"
-        shell: bash
+      shell: bash
 
     # See: https://github.com/marketplace/actions/golang-test-annotations
     - name: "Annotate tests"
