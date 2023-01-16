@@ -38,13 +38,13 @@ jobs:
         with:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
-          secrets: inherit
+          extension: ""
 
   release-macos:
     # The the release job will only run if the pull request was also merged
     if: github.event.pull_request.merged == true
     name: "Publish macOS packages"
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -67,13 +67,13 @@ jobs:
         with:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
-          secrets: inherit
+          extension: ""
 
   release-windows:
     # The the release job will only run if the pull request was also merged
     if: github.event.pull_request.merged == true
     name: "Publish Windows packages"
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -96,4 +96,4 @@ jobs:
         with:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
-          secrets: inherit
+          extension: ".exe"
