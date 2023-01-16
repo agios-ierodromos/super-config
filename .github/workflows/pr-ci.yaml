@@ -9,7 +9,14 @@ on:
   pull_request:
 
 jobs:
+    
+
   test-and-coverage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
     name: "Tests for Pull Requests"
     if: ${{ github.ref != 'refs/heads/main' || github.event.pull_request.merged != true }}
     uses: ./.github/workflows/ci.yml

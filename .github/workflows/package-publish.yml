@@ -19,6 +19,11 @@ on:
           required: true
           type: string
 
+permissions:
+  contents: write
+  package: write
+  pull-requests: write
+
 jobs:
   # The the release job will only run if the pull request was also merged
   release:

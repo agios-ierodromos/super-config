@@ -26,12 +26,14 @@ jobs:
 
     permissions:
       contents: write
+      package: write
+      pull-requests: write
 
     uses: ./.github/workflows/ackage-publish.yml
-      with:
-        goos: ${{ matrix.goos }}
-        goarch: ${{ matrix.goarch }}
-      secrets: inherit
+    with:
+      goos: ${{ matrix.goos }}
+      goarch: ${{ matrix.goarch }}
+    secrets: inherit
 
   release-macos:
     # The the release job will only run if the pull request was also merged
@@ -47,12 +49,14 @@ jobs:
 
     permissions:
       contents: write
+      package: write
+      pull-requests: write
 
     uses: ./.github/workflows/ackage-publish.yml
-      with:
-        goos: ${{ matrix.goos }}
-        goarch: ${{ matrix.goarch }}
-      secrets: inherit
+    with:
+      goos: ${{ matrix.goos }}
+      goarch: ${{ matrix.goarch }}
+    secrets: inherit
 
   release-windows:
     # The the release job will only run if the pull request was also merged
@@ -68,9 +72,11 @@ jobs:
 
     permissions:
       contents: write
+      package: write
+      pull-requests: write
 
     uses: ./.github/workflows/ackage-publish.yml
-      with:
-        goos: ${{ matrix.goos }}
-        goarch: ${{ matrix.goarch }}
-      secrets: inherit
+    with:
+      goos: ${{ matrix.goos }}
+      goarch: ${{ matrix.goarch }}
+    secrets: inherit
