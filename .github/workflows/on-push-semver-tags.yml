@@ -50,6 +50,12 @@ jobs:
       - name: "Update major/minor release"
         uses: haya14busa/action-update-semver@v1
 
+      # See: https://github.com/marketplace/actions/latest-tag
+      - name: "Update latest release tag"
+        uses: EndBug/latest-tag@latest
+        with:
+          description: "Lasted version"
+
   release:
     name: "Publish packages"
     runs-on: ubuntu-latest
