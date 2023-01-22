@@ -79,12 +79,12 @@ jobs:
             goos: darwin
           # Linux and macOS do not have extension
           - extension: ".exe"
-            goarch: darwin
+            goos: darwin
           - extension: ".exe"
-            goarch: linux
+            goos: linux
           # Windows should only have ".exe" extension
           - extension: ""
-            goarch: windows
+            goos: windows
 
     permissions:
       contents: write
