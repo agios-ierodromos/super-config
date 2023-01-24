@@ -62,7 +62,7 @@ jobs:
 
       # See: https://github.com/marketplace/actions/github-script
       - name: "Create release"
-        uses: "actions/github-script@v5"
+        uses: "actions/github-script@v6"
         with:
           script: |
             try {
@@ -72,13 +72,15 @@ jobs:
               await github.rest.repos.createRelease({
                 owner,
                 repo,
-                generate_release_notes: true,
                 name: tag,
                 tag_name: tag,
+                draft: true,
+                generate_release_notes: true,
                 make_latest: "false",
                 prerelease: false,
-                draft: true,
               });
+
+              core.notice('The "' tag + '"" release is created as draft.');
             } catch (error) {
               core.setFailed(error.message);
             }
